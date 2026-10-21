@@ -1,0 +1,13 @@
+services:
+  postgres:
+    image: 'postgres:16'
+    container_name: authservice
+    restart: always
+    environment:
+     POSTGRES_USER: ${AUTH_DB_USER}
+     POSTGRES_PASSWORD: ${AUTH_DB_PASSWORD}
+     POSTGRES_DB: ${AUTH_DB_NAME}
+    ports:
+      - "5433:5432"
+    volumes:
+      - ./authdata:/var/lib/postgresql/data
