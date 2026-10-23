@@ -15,8 +15,10 @@ public class Credentials {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(unique = true)
     private String login;
-    private String password;
+    @Column(name = "password_hash")
+    private String passwordHash;
 
     @Column(name = "user_id")
     private Long userId;

@@ -33,3 +33,15 @@ build/
 .vscode/
 
 .env
+Dockerfile
+docker-compose.yml
+*.jar
+*.class
+*.log
+.idea/
+.git/
+.gitignore
+README.md
+mvnw
+mvnw.cmd
+.dockerignore

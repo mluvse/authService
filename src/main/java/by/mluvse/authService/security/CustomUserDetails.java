@@ -2,6 +2,7 @@ package by.mluvse.authService.security;
 
 import by.mluvse.authService.Role;
 import by.mluvse.authService.entity.Credentials;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.jspecify.annotations.Nullable;
 import org.springframework.security.core.GrantedAuthority;
@@ -12,6 +13,7 @@ import java.util.Collection;
 import java.util.List;
 
 @RequiredArgsConstructor
+@Getter
 public class CustomUserDetails implements UserDetails {
 
     private final Credentials credentials;
@@ -24,7 +26,7 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public @Nullable String getPassword() {
-        return credentials.getPassword();
+        return credentials.getPasswordHash();
     }
 
     @Override
@@ -39,7 +41,7 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public boolean isAccountNonLocked() {
-        return credentials.isActive();
+        return true;
     }
 
     @Override
